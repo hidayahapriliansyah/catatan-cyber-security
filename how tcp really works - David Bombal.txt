@@ -1,0 +1,54 @@
+https://www.youtube.com/watch?v=rmFX1V49K8U&t=2214s
+
+TCP (transmission control protokol), connection oriented protokol.
+        Memeriksa/memverifikasi kedua komputer yang akan berkomunikasi dengan Three way handshake, SYN, SYN-ACK, ACK.
+  mastering wireshark
+
+Three way handshake (TWH) bekerja dengan cara saling membalas sequence number dengan acknumber.
+TWH diawali dengan mengirim paket SYN dari klien, yang dikirim ke server
+lalu server membalas dengan memberi paket SYN-ACK pada klien,
+lalu klien membalas paket tersebut dengan paket ACK.
+
+Ada beberapa komponen paket yang akan kita garis bawahi pada TWH.
+Sequence number (SN): merupakan nomor acak yang dijadikan sebagai 
+  nomor awal identitas paket.
+Next Sequence number (NSN) : merupakan nomor yang akan ditambahkan jika paket diterima
+  dan nomor ini nantinya akan disimpan di acknowledgement number
+acknowledgement number (AN) : Nomor pengakuan, kayak namanya, nomor ini nomor
+  balasan dari sequence number
+
+Contoh : 
+PAKET PERTAMA
+  SYN memiliki SN 1, NSN 2, AN 0 (AN hanya terdapat pada paket balasan SYN-ACK, & ACK) 
+PAKET KEDUA
+  server membalas dengan mengirim SYN ACK yang berisi :
+    SN 23 (random), NSN 2, dan AN 3 (merupakan nilai SN + NSN pada SYN)
+PAKET KETIGA
+  Klien membalas dengan ACK berisi
+    SN 1 random, NSN 1, dan AN 25 (merupakan nilai SN + NSN pada SYN ACK) 
+
+TCP OPTION
+  ieu rada rieut sih. Tapi intina dina Header Lenght aya ruang nu mana
+  dipake jeung ngirim TCP Option, eta mah nu ek digunakan atawa moal
+
+TCP FLAGS
+ Ini merupakan sekumpulan angka biner yang merepresentasikan status set atau tidak
+  
+  Tip untuk mendapatkan syntak mencari status flags :
+    Klik status flags
+    Lalu nanti dibagian kiri bawah layar wireshark akan muncul syntak
+    Masukkan syntak pada kolom pencarian
+
+TCP WINDOWS
+  Metafora nya seperti mengirim air. Kalau kita mau ngirim air kolam, se kolam,
+  ya harus ngasih tahu dulu ukuran airnya segini, kalau enggak, bisa bisa
+  si penerima nerima airnya pakai gelas kecil, ya nerimanya harus langsung ke kolam juga
+  biar airnya gak tumpah tumpah terus cepet.
+
+  Misal : Windows Size : 131 itu artinya "Jangan kirimkan saya data lebih dari 131 byte"
+
+  Calculated Windows Size di wireshark.
+
+MAXIMUM SEGMENT SIZE (MSS)
+
+SELECTIVE ACKNOWLEDGEMENT (SACK)

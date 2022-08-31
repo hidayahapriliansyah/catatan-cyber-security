@@ -1,0 +1,12 @@
+https://www.youtube.com/watch?v=F2PXe_o7KqM&t=28s
+
+IP Filter Scan
+
+nmap -sS <address> -F
+  artinya nmap lakukan -s (scan) S (SYN/Stealth?) pada IP (address) -F (FAST artinya
+  lakukan port scanning pada top 100 port. atuh port ge kan aya 65536)
+
+nmap -sS -p 1-1000 <address> -F
+  -p range port
+
+Bagaimana cara mengidentifikasi potensi NMAP Scan?
