@@ -1,0 +1,57 @@
+https://www.youtube.com/watch?v=P5jC8D5zndc
+
+https://www.youtube.com/watch?v=IXAW0YuFN2I
+
+Ini video yang bagus.
+
+Osi layer ada 7. https://pemasangan.com/pengertian-dan-cara-kerja-osi-layer/
+
+Ceritanya udah ada data dari layer 7 Aplication
+yaitu HTTP & Data.
+
+Nah ini baru data ya.
+Data ini sebut aja bentuknya | HTTP & DATA |
+|
+|
+Masuk ke layer transimision layer 4 berjalan di TCP, maka data
+akan berubah menjadi SEGMENT dengan ditambah header TCP Source.port
+dan Destination.port menjadi 
+|HEADER (H)| HTTP & DATA| Dimana Header merupakan nilai TCP tadi.
+SEGMENT = | HEADER TCP | HTTP & Data |
+|
+|
+Masuk ke layer 3 Network dimana data akan diberikan IP Address.
+Data akan ditambahkan Header baru lagi, kali ini kita sebut ini paket.
+Header pada paket akan berupa IP Add. Source & IP add Dest.
+PAKET = | HEADER IP | SEGMENT |
+|
+|
+Masuk ke layer 2 Data link, dimana paket akan diberikan header
+berupa Mac Address source & Destination. Kita sebut ini Frame.
+FRAME = | HEADER MAC ADDR | PAKET |
+
+
+Ini ada hubungannya dengan ARP (address Resolution Protocol).
+Pada ARP, device yang akan berkomunikasi akan membroadcast Mac Address
+yang terdapat pada Header Frame. Nahhhhhhhhh ....
+Kalau misal beda jaringan nih contoh ...
+
+FRAME =
+Header : mac addreess source 1.1.1, mac address destination 3.3.3
+  Header paket : ip address source 10.2, ip address destination 20.2
+    Header segment : TCP port souce 1030, TCP port destination 80
+      Data
+
+Nah si komputer asal yang ngelakuin arp bakal nanyain ke jaringan sekitarnya, ada gak mac add 3.3.3?
+Kan gak ada ya. Dia pun nerusin framenya ke Default gateway yang akan diterima Router.
+Router itu ngurusin IP Protocol. Dia gak terlalu peduli MAC address.
+Router pun ngehapus header frame mac add. Lalu ngeliat Ip add nya.
+Si router liat ip address sumber dan tujuannya, oh ternyata beda jaringan
+yang satu 10. ... yang tujuannya 20. ...
+Nah kalau langsung ada router disebelahnya yang 20 enakya ...
+Si Frame bisa diganti deh Header Mac nya jadi mac address sourcenya punya router 10.1,
+mac address destination nya router 20.1.
+Tapi kalau gak ketemu dia bakal terusin paket itu ke router di atasnya,
+ganti header fram lagi, gak ketemu routernya? ke atas lagi, ganti header frame lagi.
+
+
