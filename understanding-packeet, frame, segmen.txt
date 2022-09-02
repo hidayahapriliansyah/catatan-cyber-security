@@ -28,7 +28,7 @@ PAKET = | HEADER IP | SEGMENT |
 |
 Masuk ke layer 2 Data link, dimana paket akan diberikan header
 berupa Mac Address source & Destination. Kita sebut ini Frame.
-FRAME = | HEADER MAC ADDR | PAKET |
+FRAME = | HEADER MAC ADDR | PAKET | aya FPC kitu da
 
 
 Ini ada hubungannya dengan ARP (address Resolution Protocol).
