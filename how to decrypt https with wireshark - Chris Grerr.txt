@@ -1,0 +1,25 @@
+https://www.youtube.com/watch?v=5qecyZHL-GU&t=134s
+
+Skenario :
+  Kita akan menangkap trafic internet di laptop kita dengan wireshark.
+  Lalu kita akan men-decrypt tls sehingga berubah jadi http sehingga kita bisa membaca datanya.
+
+Cara :
+  1. Buat file sslkeylog.log. Terserah dimana aja ngan sing rada kaharti we meureun.
+  2. Buat environment baru di Windows.
+    Pergi ke control panel> system> advanced system> advancend> new environment.
+    Isi variable nama dengan SSLKEYLOGFILE.
+    Isi variable value dengan direktori sslkeylog.log. 
+      Kalo saya mah C:\Users\DELL LATTITUDE E5440\Desktop\belajar-cyber-security\sslkeylog\sslkeylog.log.
+  
+  3. Ceunah katanya Pak Greer si chrome nya harus direstart dulu.
+  4. Nyalakan Wireshark. Pilih device sumber internet yang dipakai, mau ethernet atau wifi.
+  5. Masuk browser, kunjungi web yang https. Contoh wireshark.org.
+    Biarkan wireshark merekam trafic.
+  6. Stop scanning traffic.
+  7. Masuk preference, pilih port, pilih TLS.
+  8. Isi pre master secret log dengan direktori sslkeylog.log.
+  9. Boom ... yang tadinya TLS v1.3 doang bakal muncul HTTP2.
+  10. Selain berurusan dengan enkripsi, kita juga berusan dengan kompresi.
+    Maka jika nilai tidak terbaca, lihat bagian paket bytes. nanti akan ada pilihan
+    decrypt, frame, reassemble, dll. explore aja aing ge can pati ngarti nu ieu na mah.
